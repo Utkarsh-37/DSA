@@ -8,15 +8,19 @@ public:
         vector<int> right(n);
 
         left[0] = height[0];
+        // Prefix Max
         for(int i=1; i<n; i++)
         {
             left[i] = max(left[i-1], height[i]);
+            // cout<<left[i]<<" ";
         }
-
+        // cout<<endl;
+        //Suffix Max
         right[n-1] = height[n-1];
         for(int i=n-2; i>=0; i--)
         {
             right[i] = max(right[i+1], height[i]);
+            // cout<<right[i]<<" ";
         }
 
         int trapped_water = 0;
